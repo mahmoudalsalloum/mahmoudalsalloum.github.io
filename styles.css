@@ -1,6 +1,6 @@
 :root {
   --text-color: #1a1c20;
-  --link-color: #0051ff;
+  --link-color: #0004ff;
   --background-color: #eeeff1;
 }
 
@@ -17,35 +17,46 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--text-color);
-  background-color: var(--background-color);
+  background-image: url('images/Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-/* NAVBAR */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0 50px;
   height: 80px;
 }
 
 nav .left a {
   color: var(--text-color);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 28px; /* Größere Schriftgröße */
+  font-weight: 700; /* Fettere Schrift */
+}
+
+nav .right {
+  display: flex;
+  align-items: center;
 }
 
 nav .right a {
+  display: flex;
+  align-items: center;
   color: var(--text-color);
   margin: 0 10px;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+nav .right a i {
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 nav .right a:last-child {
@@ -59,10 +70,30 @@ nav .right a span {
   margin-left: 5px;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  nav .right {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+  }
+
+  nav .right a {
+    margin: 5px 0;
+    width: 100%;
+  }
+}
+
 /* SECTION 1: Hero */
 .hero-section {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 0 50px;
   margin: 50px 0;
@@ -72,6 +103,7 @@ nav .right a span {
 
 .hero-section .text {
   flex: 5;
+  text-align: center;
 }
 
 .hero-section .text h2 {
@@ -100,12 +132,30 @@ nav .right a span {
 .hero-section .headshot {
   flex: 2;
   display: flex;
-  justify-content: right;
+  justify-content: center;
 }
 
 .hero-section .headshot img {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   border-radius: 50%;
+}
+
+/* Media Queries für größere Bildschirme */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-section .text {
+    text-align: left;
+  }
+
+  .hero-section .headshot {
+    justify-content: flex-end;
+  }
 }
 
 /* SECTION 2: Skills */
@@ -135,11 +185,10 @@ nav .right a span {
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   width: 200px;
   padding: 10px 20px;
   margin: 10px;
-  border: 1.5px solid #d3d3d3;
+  border: 1.5px solid #000000;
   border-radius: 5px;
 }
 
@@ -153,55 +202,6 @@ nav .right a span {
 .skills-section .cells .cell span {
   font-size: 18px;
 }
-
-/* SECTION 3: Testimony */
-.testimony-section {
-  padding: 0 50px;
-  margin-bottom: 100px;
-}
-
-.testimony-section h2 {
-  font-size: 35px;
-  margin-bottom: 30px;
-}
-
-.testimony-section .group {
-  display: flex;
-  align-items: center;
-  gap: 50px;
-}
-
-.testimony-section .group .person-details {
-  text-align: center;
-  flex: 2;
-}
-
-.testimony-section .group .person-details img {
-  width: 200px;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.testimony-section .group .person-details p {
-  font-weight: 600;
-}
-
-.testimony-section .group .person-details p:last-child {
-  font-weight: normal;
-}
-
-.testimony-section .group .text {
-  flex: 8;
-}
-
-
-
-
-
-
-
 
 /* SECTION 3: My Education - Timeline Grid Style */
 .timeline-grid {
@@ -217,18 +217,18 @@ nav .right a span {
 .timeline-grid-container {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Nimmt die volle Breite ein */
+  width: 100%;
 }
 
 .timeline-grid-item {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+  background-color: #9c78ff;
+  border: 1px solid #000000;
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
-  position: relative; /* Für die Pfeile */
-  width: calc(50% - 20px); /* Nimmt etwa die Hälfte der Breite ein */
+  position: relative;
+  width: 100%;
 }
 
 .timeline-grid-item.left {
@@ -242,7 +242,7 @@ nav .right a span {
 .timeline-grid-item h3 {
   font-size: 1.1em;
   margin-bottom: 5px;
-  color: var(--accent-color, #007bff);
+  color: var(--accent-color, #000000);
 }
 
 .timeline-grid-item h4 {
@@ -253,7 +253,7 @@ nav .right a span {
 
 .timeline-grid-item p {
   font-size: 0.9em;
-  color: #555;
+  color: #000000;
 }
 
 /* Pfeile */
@@ -265,7 +265,7 @@ nav .right a span {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 20px solid #ccc; /* Farbe des Pfeils */
+  border-top: 20px solid #000000;
 }
 
 .arrow-down-left {
@@ -276,60 +276,20 @@ nav .right a span {
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-  border-top: 20px solid #ccc; /* Farbe des Pfeils */
+  border-top: 20px solid #000000;
 }
 
 .timeline-grid-item.last .arrow-down-right,
 .timeline-grid-item.last .arrow-down-left {
-  display: none; /* Kein Pfeil beim letzten Element */
+  display: none;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .timeline-grid-item {
-    width: 100%; /* Nimmt die volle Breite ein */
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .timeline-grid-item.left,
-  .timeline-grid-item.right {
-    align-self: auto; /* Zentriert die Elemente */
-  }
-
-  .arrow-down-right,
-  .arrow-down-left {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .arrow-down-left {
-    /* Keine zusätzliche Transformation nötig, da es jetzt mittig ist */
+    width: calc(50% - 20px);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* SECTION 4: My Projects */
 .projects-section {
@@ -351,6 +311,7 @@ nav .right a span {
 
 .projects-section .project-item {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   background-color: #f9f9f9;
   padding: 20px;
@@ -359,8 +320,9 @@ nav .right a span {
 }
 
 .projects-section .project-item img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  max-width: 150px;
+  height: auto;
   object-fit: cover;
   border-radius: 5px;
 }
@@ -376,4 +338,10 @@ nav .right a span {
 
 .projects-section .project-info p {
   font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .projects-section .project-item {
+    flex-direction: row;
+  }
 }
