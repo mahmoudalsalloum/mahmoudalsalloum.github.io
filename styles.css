@@ -41,6 +41,11 @@ nav .left a {
   color: var(--text-color);
   font-size: 28px; /* Größere Schriftgröße */
   font-weight: 700; /* Fettere Schrift */
+  transition: transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+nav .left a:hover {
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 nav .right {
@@ -54,7 +59,11 @@ nav .right a {
   color: var(--text-color);
   margin: 0 10px;
   font-size: 16px;
-  transition: color 0.3s;
+  transition: color 0.3s, border-color 0.3s, transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+nav .right a:hover {
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 nav .right a i {
@@ -124,12 +133,13 @@ nav .right a span {
   border-radius: 5px;
   margin-right: 10px;
   margin-bottom: 10px;
-  transition: .1s;
+  transition: color 0.3s, border-color 0.3s, transform 0.3s ease; /* Transition hinzugefügt */
 }
 
 .hero-section .text .links a:hover {
   color: var(--text-color);
-  border: 2px solid var(--text-color);
+  border-color: var(--text-color);
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 .hero-section .headshot {
@@ -142,6 +152,11 @@ nav .right a span {
   width: 100%;
   max-width: 350px;
   border-radius: 50%;
+  transition: transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+.hero-section .headshot img:hover {
+  transform: scale(1.05); /* Leichte Vergrößerung beim Hover */
 }
 
 /* Media Queries für größere Bildschirme */
@@ -193,6 +208,11 @@ nav .right a span {
   margin: 10px;
   border: 1.5px solid #000000;
   border-radius: 5px;
+  transition: transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+.skills-section .cells .cell:hover {
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 .skills-section .cells .cell img {
@@ -244,6 +264,11 @@ nav .right a span {
   margin-bottom: 30px;
   position: relative;
   width: 100%;
+  transition: transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+.timeline-grid-item:hover {
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 .timeline-grid-item.left {
@@ -306,20 +331,26 @@ nav .right a span {
   padding: 20px;
   border-radius: 5px; /* Abgerundete Ecken für jede Karte */
   border: 2px solid var(--border-color); /* Farbiger Rahmen */
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease; /* Transition hinzugefügt */
   width: 100%;
 }
 
 .projects-section .project-item:hover {
   border-color: var(--hover-border-color); /* Farbe des Rahmens beim Hover-Effekt */
+  transform: translateY(-5px); /* Leichte Bewegung nach oben beim Hover */
 }
 
 .projects-section .project-item img {
   width: 100%;
   max-width: 150px;
   height: auto;
-  object-fit: cover;
+  object-fit: contain; /* Anpassung hinzugefügt */
   border-radius: 5px; /* Abgerundete Ecken für das Bild */
+  transition: transform 0.3s ease; /* Transition hinzugefügt */
+}
+
+.projects-section .project-item img:hover {
+  transform: scale(1.05); /* Leichte Vergrößerung beim Hover */
 }
 
 .projects-section .project-info {
