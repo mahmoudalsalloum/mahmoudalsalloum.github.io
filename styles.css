@@ -218,9 +218,21 @@ nav .right a span {
 }
 
 .timeline-grid-container {
+  position: relative; /* Ermöglicht das absolute Positionieren der Linie */
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.timeline-grid-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%; /* Zentriert die Linie */
+  width: 4px; /* Breite der Linie */
+  background-color: var(--border-color); /* Farbe der Linie */
+  z-index: -1; /* Stellt sicher, dass die Linie hinter den Karten ist */
 }
 
 .timeline-grid-item {
@@ -236,55 +248,29 @@ nav .right a span {
 
 .timeline-grid-item.left {
   align-self: flex-start;
+  margin-left: 0; /* Positioniert die Karte links der Linie */
 }
 
 .timeline-grid-item.right {
   align-self: flex-end;
+  margin-right: 0; /* Positioniert die Karte rechts der Linie */
 }
 
-.timeline-grid-item h3 {
-  font-size: 1.1em;
-  margin-bottom: 5px;
-  color: var(--accent-color, #000000);
-}
-
-.timeline-grid-item h4 {
-  font-size: 1em;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.timeline-grid-item p {
-  font-size: 0.9em;
-  color: #000000;
-}
-
-/* Pfeile */
-.arrow-down-right {
+.timeline-grid-item::after {
+  content: '';
   position: absolute;
-  bottom: -20px;
-  right: 10px;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 20px solid #000000;
+  top: 50%;
+  width: 20px; /* Länge der Verbindungslinie */
+  height: 2px; /* Breite der Verbindungslinie */
+  background-color: var(--border-color); /* Farbe der Verbindungslinie */
 }
 
-.arrow-down-left {
-  position: absolute;
-  bottom: -20px;
-  left: 10px;
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 20px solid #000000;
+.timeline-grid-item.left::after {
+  left: 100%; /* Positioniert die Verbindungslinie rechts der Karte */
 }
 
-.timeline-grid-item.last .arrow-down-right,
-.timeline-grid-item.last .arrow-down-left {
-  display: none;
+.timeline-grid-item.right::after {
+  right: 100%; /* Positioniert die Verbindungslinie links der Karte */
 }
 
 /* Responsive Design */
