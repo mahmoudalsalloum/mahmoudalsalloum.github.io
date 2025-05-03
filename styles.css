@@ -290,6 +290,46 @@ nav .right a span {
   transform: scale(1.1);
 }
 
+/* Media Query for smaller screens */
+@media (max-width: 767px) {
+  nav {
+    padding: 0 20px;
+    flex-direction: column; /* Stack navigation links vertically */
+    height: auto;
+    gap: 10px;
+  }
+
+  nav .right {
+    flex-direction: column;
+  }
+
+  nav .right a {
+    margin: 5px 0;
+  }
+
+  .hero-section {
+    padding: 0 20px;
+    margin: 20px 0;
+    margin-bottom: 50px;
+  }
+
+  .hero-section .text h2 {
+    font-size: 30px;
+  }
+
+  .skills-section .cells .cell {
+    width: auto; /* Allow cells to adjust width */
+    margin: 5px;
+    padding: 5px 10px;
+  }
+  .language-slice {
+    width: 70px; /* Make language slices smaller */
+    height: 70px;
+    font-size: 12px;
+  }
+  .projects-section .project-item {flex-direction: column;}
+}
+
 /* SECTION 3: My Education - Timeline Grid Style */
 .timeline-grid {
   padding: 20px;
