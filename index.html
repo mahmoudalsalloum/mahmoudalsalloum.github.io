@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -20,15 +20,16 @@
 <body>
   <!-- NAVBAR -->
   <nav class="fade-in">
-    <div class="it-container">
+    <div class="left">
       <div class="devops-icon">
         <span class="dev-text">Dev</span>
         <img src="images/logo.png" alt="DevOps Icon" class="icon">
         <span class="ops-text">Ops</span>
       </div>
     </div>
-    <div class="left">
-      <a href="/">Mahmoud Alsalloum</a>
+
+    <div class="center">
+      <a href="/" class="name">Mahmoud Alsalloum</a>
     </div>
 
     <div class="right">
@@ -46,6 +47,11 @@
         <i class="fa-solid fa-envelope"></i>
         <span>Email</span>
       </a>
+
+      <!-- Dark Mode Toggle -->
+      <button id="dark-mode-toggle">
+        <i class="fa-solid fa-moon"></i>
+      </button>
     </div>
   </nav>
 
@@ -285,9 +291,6 @@
             <a href="documents/Infrastructure_Monitoring_with_Prometheus_and_Grafana.pdf" target="_blank" class="project-link">Click here to read</a>
           </div>
         </div>
-  
-
-
         <!-- Project 6 -->
         <div class="project-item">
           <img src="images/Configuration.png" alt="Project 6 Image">
@@ -333,69 +336,59 @@
             <a href="documents/Hosting_Portfolio_Website_with_Github_Actions.pdf" target="_blank" class="project-link">Click here to read</a>
           </div>
         </div>
-
-
-
- <!-- Project 11 -->
- <div class="project-item">
-  <img src="images/Testing.png" alt="Project 11 Image">
-  <div class="project-info">
-    <h3>Automated Testing and Deployment with Python</h3>
-    <p>Developed a Python tool for CI/CD pipelines to automate testing and deployment, enhancing efficiency.</p>
-    <a href="documents/Automated_Testing_and_Deployment_with_Python.pdf" target="_blank" class="project-link">Click here to read</a>
-  </div>
-</div>
-
-
-
- <!-- Project 12 -->
- <div class="project-item">
-  <img src="images/DB-Management.png" alt="Project 12 Image">
-  <div class="project-info">
-    <h3>Comprehensive SQL Database Management with MariaDB</h3>
-    <p>Managed a SQL database using MariaDB, optimizing queries and implementing automated backups.</p>
-    <a href="documents/Comprehensive_SQL_Database_Management_with_MariaDB.pdf" target="_blank" class="project-link">Click here to read</a>
-  </div>
-</div>
-
-
-
- <!-- Project 13 -->
- <div class="project-item">
-  <img src="images/IaC-Management.png" alt="Project 13 Image">
-  <div class="project-info">
-    <h3>Infrastructure as Code for Local Environments with Terraform</h3>
-    <p>Used Terraform to automate local infrastructure setup, ensuring consistency in development environments.</p>
-    <a href="documents/Infrastructure_as_Code_for_Local_Environments_with_Terraform.pdf" target="_blank" class="project-link">Click here to read</a>
-  </div>
-</div>
-
-
-<!-- Project 14 -->
-<div class="project-item">
-  <img src="images/Windows-Administration.png" alt="Project 14 Image">
-  <div class="project-info">
-    <h3>Comprehensive Network Services Management</h3>
-    <p>Configured Windows servers and clients, implementing DNS, DHCP, Active Directory, and Group Policies.</p>
-    <a href="documents/Comprehensive_Network_Services_Management.pdf" target="_blank" class="project-link">Click here to read</a>
-  </div>
-</div>
-
-
-<!-- Project 15 -->
-<div class="project-item">
-  <img src="images/Jenkins-Devops.png" alt="Project 15 Image">
-  <div class="project-info">
-    <h3>Automated Build and Deployment Pipeline with Jenkins on Ubuntu</h3>
-    <p>Configured Jenkins on Ubuntu to automate builds and deployments, streamlining workflows.</p>
-    <a href="documents/Automated_Build_and_Deployment_Pipeline_with_Jenkins_on_Ubuntu.pdf" target="_blank" class="project-link">Click here to read</a>
-  </div>
-</div>
-
-
+        <!-- Project 11 -->
+        <div class="project-item">
+          <img src="images/Testing.png" alt="Project 11 Image">
+          <div class="project-info">
+            <h3>Automated Testing and Deployment with Python</h3>
+            <p>Developed a Python tool for CI/CD pipelines to automate testing and deployment, enhancing efficiency.</p>
+            <a href="documents/Automated_Testing_and_Deployment_with_Python.pdf" target="_blank" class="project-link">Click here to read</a>
+          </div>
+        </div>
+        <!-- Project 12 -->
+        <div class="project-item">
+          <img src="images/DB-Management.png" alt="Project 12 Image">
+          <div class="project-info">
+            <h3>Comprehensive SQL Database Management with MariaDB</h3>
+            <p>Managed a SQL database using MariaDB, optimizing queries and implementing automated backups.</p>
+            <a href="documents/Comprehensive_SQL_Database_Management_with_MariaDB.pdf" target="_blank" class="project-link">Click here to read</a>
+          </div>
+        </div>
+        <!-- Project 13 -->
+        <div class="project-item">
+          <img src="images/IaC-Management.png" alt="Project 13 Image">
+          <div class="project-info">
+            <h3>Infrastructure as Code for Local Environments with Terraform</h3>
+            <p>Used Terraform to automate local infrastructure setup, ensuring consistency in development environments.</p>
+            <a href="documents/Infrastructure_as_Code_for_Local_Environments_with_Terraform.pdf" target="_blank" class="project-link">Click here to read</a>
+          </div>
+        </div>
+        <!-- Project 14 -->
+        <div class="project-item">
+          <img src="images/Windows-Administration.png" alt="Project 14 Image">
+          <div class="project-info">
+            <h3>Comprehensive Network Services Management</h3>
+            <p>Configured Windows servers and clients, implementing DNS, DHCP, Active Directory, and Group Policies.</p>
+            <a href="documents/Comprehensive_Network_Services_Management.pdf" target="_blank" class="project-link">Click here to read</a>
+          </div>
+        </div>
+        <!-- Project 15 -->
+        <div class="project-item">
+          <img src="images/Jenkins-Devops.png" alt="Project 15 Image">
+          <div class="project-info">
+            <h3>Automated Build and Deployment Pipeline with Jenkins on Ubuntu</h3>
+            <p>Configured Jenkins on Ubuntu to automate builds and deployments, streamlining workflows.</p>
+            <a href="documents/Automated_Build_and_Deployment_Pipeline_with_Jenkins_on_Ubuntu.pdf" target="_blank" class="project-link">Click here to read</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
+
+  <!-- Scroll to Top Button -->
+  <button id="scroll-to-top" class="scroll-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
@@ -405,6 +398,27 @@
       elements.forEach(element => {
         element.classList.add('visible');
       });
+    });
+
+    const toggleButton = document.getElementById('dark-mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const icon = toggleButton.querySelector('i');
+      icon.classList.toggle('fa-moon');
+      icon.classList.toggle('fa-sun');
+    });
+
+    const scrollToTopButton = document.getElementById('scroll-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        scrollToTopButton.style.display = 'block';
+      } else {
+        scrollToTopButton.style.display = 'none';
+      }
+    });
+
+    scrollToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
