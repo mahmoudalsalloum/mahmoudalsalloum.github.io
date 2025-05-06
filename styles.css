@@ -39,6 +39,12 @@ nav {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .devops-icon {
   display: flex;
   align-items: center;
@@ -143,6 +149,9 @@ nav .right a span {
   margin: 50px 0;
   margin-bottom: 100px;
   gap: 40px;
+  background-image: url('images/hero-background.jpg'); /* Beispiel für ein Hintergrundbild */
+  background-size: cover;
+  background-position: center;
 }
 
 .hero-section .text {
