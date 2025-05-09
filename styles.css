@@ -4,7 +4,7 @@
   --background-color: #ffffff;
   --accent-color: #00e1ff;
   --border-color: #00e1ff;
-  --hover-border-color: #00e1ff;
+  --hover-border-color: #ff5733; /* Neue Farbe für den Hover-Effekt */
 }
 
 body {
@@ -203,6 +203,7 @@ nav .right a span {
   display: flex;
   justify-content: center;
   margin-right: 20px; /* Verschiebe das Bild nach links */
+  position: relative;
 }
 
 .hero-section .headshot img {
@@ -210,17 +211,16 @@ nav .right a span {
   max-width: 350px;
   border-radius: 50%;
   transition: transform 0.3s ease;
-  border: 3px solid #000000;
-  box-shadow: 0 0 0 5px var(--border-color);
-  animation: float 2s ease-in-out infinite; /* Animation schneller machen */
+  box-shadow: 0 0 15px #00e1ff, 0 0 30px #00e1ff; /* Subtiler Glüheffekt */
+  animation: glowPulse 3s infinite alternate; /* Pulsierender Glüheffekt */
 }
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px #00e1ff, 0 0 30px #00e1ff;
   }
-  50% {
-    transform: translateY(-10px); /* Bewege das Bild nach oben */
+  100% {
+    box-shadow: 0 0 30px #00e1ff, 0 0 60px #00e1ff;
   }
 }
 
@@ -276,26 +276,25 @@ nav .right a span {
   flex-wrap: wrap;
 }
 
-
 .skills-section .cells .cell {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    width: 200px;
-    padding: 10px 20px;
-    margin: 10px;
-    border: 3px solid black; /* Standardmäßig schwarzer Rahmen */
-    background-color: var(--link-color); /* Blaue Hintergrundfarbe */
-    border-radius: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: none; /* Standardmäßig keine Box-Shadow */
-}
-body.dark-mode .skills-section .cells .cell {
-    border: 3px solid var(--border-color); /* Im Dark Mode: blauer Rahmen */
-    box-shadow: 0 0 5px var(--link-color), 0 0 10px var(--link-color); /* Neon-Effekt im Dark Mode */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 200px;
+  padding: 10px 20px;
+  margin: 10px;
+  border: 3px solid black; /* Standardmäßig schwarzer Rahmen */
+  background-color: var(--link-color); /* Blaue Hintergrundfarbe */
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none; /* Standardmäßig keine Box-Shadow */
 }
 
+body.dark-mode .skills-section .cells .cell {
+  border: 3px solid var(--border-color); /* Im Dark Mode: blauer Rahmen */
+  box-shadow: 0 0 5px var(--link-color), 0 0 15px var(--link-color); /* Dickerer Neon-Effekt im Dark Mode */
+}
 
 .skills-section .cells .cell:hover {
   transform: translateY(-5px);
@@ -344,7 +343,7 @@ body.dark-mode .skills-section .cells .cell {
   color: #000000;
   font-size: 16px;
   text-align: center;
-  box-shadow: 0 0 0 5px var(--border-color);
+  box-shadow: 0 0 0 5px var(--border-color); /* Blauer Rahmen über schwarzem Rahmen */
   transition: transform 0.3s ease;
 }
 
@@ -436,6 +435,73 @@ body.dark-mode .skills-section .cells .cell {
   }
 }
 
+/* SECTION: My IT Certificates */
+.certificates-section {
+  padding: 0 20px;
+  margin-bottom: 100px;
+}
+
+.certificates-section h2 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+.certificate-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.certificate-item {
+  position: relative;
+  width: 250px; /* Breite der Kästchen */
+  height: auto; /* Höhe automatisch anpassen */
+  overflow: hidden; /* Verhindere, dass Inhalte über die Box hinausgehen */
+  border-radius: 10px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.certificate-item:hover {
+  transform: scale(1.05); /* Moderne Skalierung ohne Drehung */
+  border-color: var(--hover-border-color);
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto; /* Höhe automatisch anpassen */
+  object-fit: contain; /* Verwende 'contain', um das gesamte Bild sichtbar zu machen */
+  border-radius: 10px;
+  border: none; /* Keine Rahmen */
+  box-shadow: none; /* Kein Box-Shadow */
+  transition: filter 0.3s ease; /* Übergang für die Filter-Änderung */
+}
+
+.certificate-item:hover .certificate-image {
+  filter: brightness(50%); /* Bild dunkler machen bei Hover */
+}
+
+.certificate-link {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  color: black; /* Textfarbe schwarz */
+  font-size: 18px;
+  text-decoration: none;
+  background-color: var(--link-color);
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Unsichtbar, wenn nicht gehovt */
+}
+
+.certificate-item:hover .certificate-link {
+  opacity: 1; /* Sichtbar bei Hover */
+}
+
 /* SECTION 4: My Projects */
 .projects-section {
   padding: 0 20px;
@@ -463,11 +529,10 @@ body.dark-mode .skills-section .cells .cell {
   border-radius: 5px;
   border: 3px solid #000000;
   box-shadow: 0 0 0 5px var(--border-color);
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .projects-section .project-item:hover {
-  border-color: var(--hover-border-color);
   transform: translateY(-5px);
 }
 
@@ -555,7 +620,7 @@ body.dark-mode {
   --link-color: #00e1ff;
   --accent-color: #00e1ff;
   --border-color: #00e1ff;
-  --hover-border-color: #00e1ff;
+  --hover-border-color: #ff5733; /* Neue Farbe für den Hover-Effekt */
   background-color: var(--background-color);
   color: var(--text-color);
 }
