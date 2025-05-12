@@ -172,19 +172,13 @@ nav .right a span {
   color: white;
   text-decoration: none;
   transition: color 0.3s, background-color 0.3s, border-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hero-section .text .links a {
-    border: 3px solid var(--border-color);
-}
-
-.hero-section .text .links a:not(body.dark-mode .hero-section .text .links a) {
-  border: 3px solid var(--link-color);
+  border: 3px solid var(--border-color);
 }
 
 .hero-section .text .links a:hover {
-  background-color: #000000;
-  color: white;
+  background-color: var(--link-color);
+  color: black; /* Textfarbe wird schwarz bei Hover */
+  box-shadow: 0 0 15px var(--link-color), 0 0 30px var(--link-color); /* Neon-Effekt bei Hover */
   transform: translateY(-5px);
 }
 
@@ -211,21 +205,21 @@ nav .right a span {
   max-width: 350px;
   border-radius: 50%;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 15px #00e1ff, 0 0 30px #00e1ff; /* Subtiler Glüheffekt */
-  animation: glowPulse 3s infinite alternate; /* Pulsierender Glüheffekt */
+  box-shadow: 0 0 25px var(--link-color); /* Neon-Effekt */
+  border: 5px solid var(--border-color); /* Blue border */
 }
 
-@keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 15px #00e1ff, 0 0 30px #00e1ff;
-  }
-  100% {
-    box-shadow: 0 0 30px #00e1ff, 0 0 60px #00e1ff;
-  }
+body.dark-mode .hero-section .headshot img {
+  box-shadow: 0 0 5px var(--link-color), 0 0 15px var(--link-color); /* Dickerer Neon-Effekt im Dark Mode */
+}
+
+body:not(.dark-mode) .hero-section .headshot img {
+  box-shadow: 0 0 0 5px #000000; /* Thinner black border in light mode */
 }
 
 .hero-section .headshot img:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 35px var(--link-color); /* Intensiverer Neon-Effekt bei Hover */
 }
 
 /* Media Queries für größere Bildschirme */
@@ -524,12 +518,17 @@ body.dark-mode .skills-section .cells .cell {
   display: flex;
   flex-direction: row;
   gap: 20px;
-  background-color: #c0c0c0;
+  background-color: #00e1ff;
   padding: 20px;
   border-radius: 5px;
-  border: 3px solid #000000;
-  box-shadow: 0 0 0 5px var(--border-color);
+  border: 3px solid #000000; /* Black border */
+  box-shadow: none; /* Remove blue border */
   transition: transform 0.3s ease;
+}
+
+body.dark-mode .projects-section .project-item {
+  border: none; /* Remove borders in dark mode */
+  box-shadow: none; /* Remove box-shadow in dark mode */
 }
 
 .projects-section .project-item:hover {
@@ -570,17 +569,18 @@ body.dark-mode .skills-section .cells .cell {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background-color: var(--link-color);
-  color: black;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
   padding: 5px 10px;
   border-radius: 3px;
   text-decoration: none;
   font-size: 14px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .project-link:hover {
   background-color: var(--hover-border-color);
+  color: black; /* Change text color on hover */
 }
 
 /* Responsive Design */
@@ -615,12 +615,12 @@ body.dark-mode .skills-section .cells .cell {
 
 /* Dark Mode */
 body.dark-mode {
-  --text-color: #eeeff1;
+  --text-color: #ffffff;
   --background-color: #1a1c20;
   --link-color: #00e1ff;
   --accent-color: #00e1ff;
   --border-color: #00e1ff;
-  --hover-border-color: #ff5733; /* Neue Farbe für den Hover-Effekt */
+  --hover-border-color: #00e1ff; /* Neue Farbe für den Hover-Effekt */
   background-color: var(--background-color);
   color: var(--text-color);
 }
