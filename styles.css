@@ -53,6 +53,11 @@ nav {
 .icon {
   width: 100px; /* Erhöhe die Breite des Icons */
   height: auto;
+  /* Entferne den Neon-Effekt im Light Mode */
+}
+
+body.dark-mode .icon {
+  filter: drop-shadow(0 0 10px var(--link-color)); /* Neon-Effekt nur im Dark Mode */
 }
 
 nav .left {
@@ -348,6 +353,7 @@ body.dark-mode .skills-section .cells .cell {
 /* SECTION 3: My Education - Timeline Grid Style */
 .timeline-grid {
   padding: 20px;
+  margin-bottom: 80px; /* Erhöhe diesen Wert, um mehr Abstand zu schaffen */
 }
 
 .timeline-grid h2 {
@@ -432,6 +438,7 @@ body.dark-mode .skills-section .cells .cell {
 /* SECTION: My IT Certificates */
 .certificates-section {
   padding: 0 20px;
+  margin-top: 80px; /* Erhöhe diesen Wert, um mehr Abstand zu schaffen */
   margin-bottom: 100px;
 }
 
@@ -469,6 +476,49 @@ body.dark-mode .skills-section .cells .cell {
   border: none; /* Keine Rahmen */
   box-shadow: none; /* Kein Box-Shadow */
   transition: filter 0.3s ease; /* Übergang für die Filter-Änderung */
+}
+
+.certificate-item:hover .certificate-image {
+  filter: brightness(50%); /* Bild dunkler machen bei Hover */
+}
+
+.certificate-link {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  color: black; /* Textfarbe schwarz */
+  font-size: 18px;
+  text-decoration: none;
+  background-color: var(--link-color);
+  padding: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  opacity: 0; /* Unsichtbar, wenn nicht gehovt */
+}
+
+.certificate-item:hover .certificate-link {
+  opacity: 1; /* Sichtbar bei Hover */
+}
+
+/* Responsive Design für Zertifikatssektion */
+@media (max-width: 767px) {
+  .certificate-list {
+    flex-direction: column; /* Ändere die Richtung zu Spalte für kleinere Bildschirme */
+    align-items: center; /* Zentriere die Zertifikate */
+  }
+
+  .certificate-item {
+    width: 90%; /* Passe die Breite der Zertifikatskästchen an */
+    margin-bottom: 20px; /* Füge Abstand zwischen den Zertifikaten hinzu */
+  }
+
+  .certificate-image {
+    width: 100%; /* Passe die Breite der Bilder an die Kästchenbreite an */
+    height: auto; /* Höhe automatisch anpassen */
+  }
 }
 
 .certificate-item:hover .certificate-image {
