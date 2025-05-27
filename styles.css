@@ -4,7 +4,7 @@
   --background-color: #ffffff;
   --accent-color: #00e1ff;
   --border-color: #00e1ff;
-  --hover-border-color: #ff5733; /* Neue Farbe für den Hover-Effekt */
+  --hover-border-color: #00e1ff; /* Neue Farbe für den Hover-Effekt */
 }
 
 body {
