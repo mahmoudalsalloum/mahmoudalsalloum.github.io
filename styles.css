@@ -35,7 +35,7 @@ nav {
   align-items: center;
   padding: 10px 0;
   height: auto;
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 .devops-icon {
@@ -143,9 +143,7 @@ nav .right a span {
   margin: 50px 0;
   margin-bottom: 100px;
   gap: 40px;
-  background-image: url('images/hero-background.jpg'); /* Beispiel für ein Hintergrundbild */
-  background-size: cover;
-  background-position: center;
+
 }
 
 .hero-section .text {
@@ -460,7 +458,7 @@ body.dark-mode .skills-section .cells .cell {
   height: auto; /* Höhe automatisch anpassen */
   overflow: hidden; /* Verhindere, dass Inhalte über die Box hinausgehen */
   border-radius: 10px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .certificate-item:hover {
@@ -561,7 +559,7 @@ body.dark-mode .skills-section .cells .cell {
 .projects-section .project-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 .projects-section .project-item {
@@ -571,19 +569,15 @@ body.dark-mode .skills-section .cells .cell {
   background-color: #00e1ff;
   padding: 20px;
   border-radius: 5px;
-  border: 3px solid #000000; /* Black border */
-  box-shadow: none; /* Remove blue border */
-  transition: transform 0.3s ease;
+  border: none; /* Black border */
+  box-shadow: 0 0 0 5px var(--border-color); /* Blue border */ 
+  transition: transform 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
 }
-
-body.dark-mode .projects-section .project-item {
-  border: none; /* Remove borders in dark mode */
-  box-shadow: none; /* Remove box-shadow in dark mode */
-}
-
+ .projects-section .project-item { position: relative; }
 .projects-section .project-item:hover {
-  transform: translateY(-5px);
-}
+  border: 3px solid var(--hover-border-color);
+ transform: scale(1.01);
+  background-color: #00b2cc;}
 
 .projects-section .project-item img {
   width: 100%;
@@ -615,23 +609,27 @@ body.dark-mode .projects-section .project-item {
   color: black;
 }
 
-.project-link {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text */
-  padding: 5px 10px;
-  border-radius: 3px;
+.project-button {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+  background-color: var(--link-color);
+  color: #000000; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px;
   text-decoration: none;
-  font-size: 14px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.project-link:hover {
-  background-color: var(--hover-border-color);
-  color: black; /* Change text color on hover */
+.projects-section .project-item:hover .project-button {
+  opacity: 1;
 }
+
+
+
 
 /* Responsive Design */
 @media (max-width: 767px) {
