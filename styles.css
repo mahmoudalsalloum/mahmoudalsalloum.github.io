@@ -60,6 +60,9 @@ body.dark-mode .icon {
   filter: drop-shadow(0 0 10px var(--link-color)); /* Neon-Effekt nur im Dark Mode */
 }
 
+
+
+
 nav .left {
   display: flex;
   align-items: center;
@@ -127,6 +130,7 @@ nav .right a span {
   cursor: pointer;
   font-size: 24px;
   color: var(--text-color);
+  margin-left: 30px;
   transition: color 0.3s ease;
 }
 
@@ -178,6 +182,12 @@ nav .right a span {
   border: 3px solid var(--border-color);
 }
 
+
+/* Entfernt den Rahmen im Lightmode */
+body:not(.dark-mode) .hero-section .text .links a {
+  border: none;
+}
+
 .hero-section .text .links a:hover {
   background-color: var(--link-color);
   color: black; /* Textfarbe wird schwarz bei Hover */
@@ -199,7 +209,7 @@ nav .right a span {
   flex: 2;
   display: flex;
   justify-content: center;
-  margin-right: 20px; /* Verschiebe das Bild nach links */
+  margin-right: 0px; /* Verschiebe das Bild nach links */
   position: relative;
 }
 
@@ -232,6 +242,7 @@ body:not(.dark-mode) .hero-section .headshot img {
     justify-content: space-between;
     padding: 0 20px;
   }
+  
 
   .hero-section {
     flex-direction: row;
@@ -272,7 +283,6 @@ body:not(.dark-mode) .hero-section .headshot img {
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .skills-section .cells .cell {
   display: flex;
   justify-content: center;
@@ -281,7 +291,7 @@ body:not(.dark-mode) .hero-section .headshot img {
   width: 200px;
   padding: 10px 20px;
   margin: 10px;
-  border: 3px solid black; /* Standardmäßig schwarzer Rahmen */
+  border: 1px solid black; /* Dünnerer schwarzer Rahmen */
   background-color: var(--link-color); /* Blaue Hintergrundfarbe */
   border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -544,6 +554,32 @@ body.dark-mode .skills-section .cells .cell {
   opacity: 1; /* Sichtbar bei Hover */
 }
 
+
+
+.project-button {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+  background-color: var(--link-color);
+  color: #000000; /* White text */
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects-section .project-item:hover .project-button {
+  opacity: 1;
+}
+
+
+
+
+
+
 /* SECTION 4: My Projects */
 .projects-section {
   padding: 0 20px;
@@ -560,6 +596,7 @@ body.dark-mode .skills-section .cells .cell {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  position: relative; /* Wichtig für Hover-Effekte */
 }
 
 .projects-section .project-item {
@@ -570,14 +607,27 @@ body.dark-mode .skills-section .cells .cell {
   padding: 20px;
   border-radius: 5px;
   border: none; /* Black border */
-  box-shadow: 0 0 0 5px var(--border-color); /* Blue border */ 
-  transition: transform 0.5s ease, border-color 0.5s ease, background-color 0.5s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Standard-Schatten */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative; /* Verhindert Layout-Verschiebungen */
+  z-index: 0; /* Standard-Z-Index */
 }
- .projects-section .project-item { position: relative; }
-.projects-section .project-item:hover {
-  border: 3px solid var(--hover-border-color);
- transform: scale(1.01);
-  background-color: #00b2cc;}
+
+/* Hover-Effekt für Dark Mode */
+body.dark-mode .projects-section .project-item:hover {
+  transform: translateY(-10px); /* Leicht nach oben verschieben */
+  background-color: rgba(0, 178, 204, 0.6); /* Dunklere Transparenz */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); /* Intensiverer Schatten */
+  z-index: 1; /* Bringt das gehoverte Element nach vorne */
+}
+
+/* Hover-Effekt für Light Mode */
+body:not(.dark-mode) .projects-section .project-item:hover {
+  transform: translateY(-10px); /* Leicht nach oben verschieben */
+  background-color: rgba(0, 100, 150, 0.8); /* Dunklere Transparenz für Light Mode */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Leichterer Schatten */
+  z-index: 1; /* Bringt das gehoverte Element nach vorne */
+}
 
 .projects-section .project-item img {
   width: 100%;
@@ -609,24 +659,6 @@ body.dark-mode .skills-section .cells .cell {
   color: black;
 }
 
-.project-button {
- position: absolute;
- bottom: 0;
- width: 100%;
-  background-color: var(--link-color);
-  color: #000000; /* White text */
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 18px;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.projects-section .project-item:hover .project-button {
-  opacity: 1;
-}
 
 
 
@@ -692,4 +724,29 @@ body.dark-mode .timeline-grid-item::after {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* Hintergrundbild nur im Darkmode */
+body.dark-mode {
+  background-image: url('images/background.png');
+  background-size: cover; /* Passt das Bild an die gesamte Seite an */
+  background-position: center; /* Zentriert das Bild */
+  background-repeat: no-repeat; /* Verhindert Wiederholungen des Bildes */
+  background-attachment: fixed; /* Fixiert das Bild */
+}
+
+/* Sicherstellen, dass im Lightmode kein Hintergrundbild angezeigt wird */
+body:not(.dark-mode) {
+  background-image: none;
+}
+
+
+
+/* Hintergrundbild nur im Lightmode */
+body:not(.dark-mode) {
+  background-image: url('images/Background-2.png'); /* Pfad zum Hintergrundbild */
+  background-size: cover; /* Passt das Bild an die gesamte Seite an */
+  background-repeat: no-repeat; /* Verhindert Wiederholungen des Bildes */
+  background-attachment: fixed; /* Fixiert das Bild */
 }
