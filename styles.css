@@ -262,6 +262,7 @@ body:not(.dark-mode) .hero-section .headshot img {
 }
 
 /* SECTION 2: Skills */
+/* SECTION 2: Skills */
 .skills-section {
   padding: 0 20px;
   margin-bottom: 100px;
@@ -283,6 +284,7 @@ body:not(.dark-mode) .hero-section .headshot img {
   justify-content: center;
   flex-wrap: wrap;
 }
+
 .skills-section .cells .cell {
   display: flex;
   justify-content: center;
@@ -295,16 +297,17 @@ body:not(.dark-mode) .hero-section .headshot img {
   background-color: var(--link-color); /* Blaue Hintergrundfarbe */
   border-radius: 5px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: none; /* Standardmäßig keine Box-Shadow */
+  box-shadow: 0 0 5px rgba(0, 225, 255, 0.3); /* Reduzierter Neon-Effekt */
 }
 
 body.dark-mode .skills-section .cells .cell {
-  border: 3px solid var(--border-color); /* Im Dark Mode: blauer Rahmen */
-  box-shadow: 0 0 5px var(--link-color), 0 0 15px var(--link-color); /* Dickerer Neon-Effekt im Dark Mode */
+  border: 2px solid var(--border-color); /* Im Dark Mode: dünnerer blauer Rahmen */
+  box-shadow: 0 0 3px var(--link-color), 0 0 8px var(--link-color); /* Subtilerer Neon-Effekt im Dark Mode */
 }
 
 .skills-section .cells .cell:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 6px var(--link-color), 0 0 12px var(--link-color); /* Leicht verstärkter Effekt bei Hover */
 }
 
 .skills-section .cells .cell img {
@@ -318,7 +321,6 @@ body.dark-mode .skills-section .cells .cell {
   font-size: 18px;
   color: black;
 }
-
 /* SECTION: Language Skills */
 .languages-section {
   padding: 0 20px;
@@ -403,33 +405,38 @@ body.dark-mode .skills-section .cells .cell {
 
 .timeline-grid-item.left {
   align-self: flex-start;
-  margin-left: 5px;
+  margin-left: 0; /* Karten bleiben unverändert */
 }
 
-.timeline-grid-item.right {
-  align-self: flex-end;
-  margin-right: 0;
-}
-
-.timeline-grid-item:hover {
-  transform: translateY(-5px);
-}
-
-.timeline-grid-item::after {
+.timeline-grid-item.left::after {
   content: '';
   position: absolute;
   top: 50%;
-  width: 20px;
+  left: calc(100%); /* Verschiebt die Linie minimal nach rechts */
+  width: 20px; /* Länge der Linie */
   height: 2px;
   background-color: #000000;
 }
 
-.timeline-grid-item.left::after {
-  left: 100%;
+
+.timeline-grid-item.right {
+  align-self: flex-end; /* Beibehaltung der rechten Ausrichtung */
+  margin-right: -3px; /* Verschiebt die Karten weiter nach links */
 }
 
+
 .timeline-grid-item.right::after {
-  right: 100%;
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: calc(100%); /* Rechte Linie bleibt korrekt positioniert */
+  width: 20px; /* Länge der Linie */
+  height: 2px;
+  background-color: #000000;
+}
+
+.timeline-grid-item:hover {
+  transform: translateY(-5px);
 }
 
 .timeline-grid-item h3, .timeline-grid-item h4, .timeline-grid-item p {
@@ -442,7 +449,6 @@ body.dark-mode .skills-section .cells .cell {
     width: calc(50% - 20px);
   }
 }
-
 /* SECTION: My IT Certificates */
 .certificates-section {
   padding: 0 20px;
@@ -519,13 +525,15 @@ body.dark-mode .skills-section .cells .cell {
   }
 
   .certificate-item {
-    width: 90%; /* Passe die Breite der Zertifikatskästchen an */
+    width: 100%; /* Passe die Breite der Zertifikatskästchen an */
     margin-bottom: 20px; /* Füge Abstand zwischen den Zertifikaten hinzu */
   }
 
   .certificate-image {
     width: 100%; /* Passe die Breite der Bilder an die Kästchenbreite an */
     height: auto; /* Höhe automatisch anpassen */
+
+    
   }
 }
 
@@ -574,10 +582,6 @@ body.dark-mode .skills-section .cells .cell {
 .projects-section .project-item:hover .project-button {
   opacity: 1;
 }
-
-
-
-
 
 
 /* SECTION 4: My Projects */
