@@ -47,11 +47,6 @@
         <i class="fa-solid fa-envelope"></i>
         <span>Email</span>
       </a>
-
-      <!-- Dark Mode Toggle -->
-      <button id="dark-mode-toggle">
-        <i class="fa-solid fa-sun"></i>
-      </button>
     </div>
   </nav>
 
@@ -553,14 +548,6 @@
       elements.forEach(element => {
         element.classList.add('visible');
       });
-    });
-
-    const toggleButton = document.getElementById('dark-mode-toggle');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      const icon = toggleButton.querySelector('i');
-      icon.classList.toggle('fa-moon');
-      icon.classList.toggle('fa-sun');
     });
 
     const scrollToTopButton = document.getElementById('scroll-to-top');
