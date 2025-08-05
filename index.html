@@ -597,6 +597,18 @@
     scrollToTopButton.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+ const body = document.body;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        body.classList.add('loaded');
+        observer.unobserve(body);
+      }
+    });
+  });
+
+  observer.observe(body);
   </script>
 </body>
 </html>
