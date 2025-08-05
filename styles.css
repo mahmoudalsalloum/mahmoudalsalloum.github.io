@@ -726,9 +726,23 @@ body.dark-mode .timeline-grid-item::after {
   transform: translateY(0);
 }
 
-
-
 body.dark-mode {
+  --text-color: #ffffff;
+  --background-color: #1a1c20;
+  --link-color: #00e1ff;
+  --accent-color: #00e1ff;
+  --border-color: #00e1ff;
+  --hover-border-color: #00e1ff; 
+  background-color: var(--background-color);
+  background-image: url('images/background.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+}
+
+
+body.dark-mode.loaded {
   background-image: url('images/background.png');
   background-size: cover; 
   background-position: center; 
