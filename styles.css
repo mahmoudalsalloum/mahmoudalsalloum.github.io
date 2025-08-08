@@ -734,26 +734,13 @@ body.dark-mode {
   --border-color: #00e1ff;
   --hover-border-color: #00e1ff; 
   background-color: var(--background-color);
-  background-image: url('images/background.png');
+  background-image: url('images/Background.png');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
   background-attachment: fixed; 
 }
 
-
-body.dark-mode.loaded {
-  background-image: url('images/background.png');
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-attachment: fixed; 
-}
-
-
-body:not(.dark-mode) {
-  background-image: none;
-}
 
 
 
